@@ -117,12 +117,65 @@ public:
         return true;
     };
 
+    Matrix& operator ++ () {
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                matrix[i][j]++;
+
+        return *this;
+    
+    };
+
+    Matrix& operator -- () {
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                matrix[i][j]--;
+
+        return *this;
+
+    };
+
+    Matrix& operator ++ (int value) {
+        Matrix t;
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                t.matrix[i][j] = matrix[i][j];
+
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                matrix[i][j]++;
+
+
+        return t;
+    };
+
+    Matrix& operator -- (int value) {
+        Matrix t;
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                t.matrix[i][j] = matrix[i][j];
+
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                matrix[i][j]--;
+
+
+        return t;
+
+    };
+
      
 
 private:
     number** matrix;
     int size;
     char chr;
+
+    static int count_matrix;
     
     void SetCursorPosition(short x, short y) {
         HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
