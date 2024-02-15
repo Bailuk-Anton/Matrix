@@ -9,24 +9,21 @@ using namespace std;
 
 class Matrix {
 public:
-    Matrix() {
+
+    Matrix(){
         this->size = 3;
         this->matrix = new number * [size];
         for (int i = 0; i < size; i++) {
             matrix[i] = new number[size];
                 for (int j = 0; j < size; j++)
                     matrix[i][j] = number((i+j)*size);
-        }
-        
+        }        
     }
 
-    void Show() {
+    void Show(const Matrix& otherMatrix) {
         system("cls");
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++)
-                cout<< matrix[i][j] << '\t';
-            cout << '\n';
-        }
+        Matrix a;
+        cout << otherMatrix;
         Wait();
     }
 
@@ -168,7 +165,14 @@ public:
 
     };
 
-     
+    friend ostream& operator<<(ostream& os, const Matrix& M) {
+        for (int i = 0; i < M.size; i++) {
+            for (int j = 0; j < M.size; j++)
+                os << M.matrix[i][j] << '\t';
+            os << '\n';
+        }
+        return os;
+    }
 
 private:
     number** matrix;

@@ -7,5 +7,5 @@ int main()
 
 	Application T;
 	T.UserSpot();
-	
+
 }

@@ -14,7 +14,7 @@ public:
 			if ((chr == (char)13) && (cursorY == 6)) { mrtx.FindDet(); Menu(); };
 			if ((chr == (char)13) && (cursorY == 7)) { mrtx.TransposeMatrix(); Menu();};
 			if ((chr == (char)13) && (cursorY == 8)) { mrtx.Rang(); Menu();	};
-			if ((chr == (char)13) && (cursorY == 9)) { mrtx.Show(); Menu();};
+			if ((chr == (char)13) && (cursorY == 9)) { mrtx.Show(mrtx); Menu();};
 			if ((chr == (char)13) && (cursorY == 10))break;
 		}
 		cout << "\n\n\n";
